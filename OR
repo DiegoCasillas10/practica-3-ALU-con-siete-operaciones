@@ -1,0 +1,21 @@
+int A = 0;
+int B = 0;
+
+void setup() {
+  pinMode(2, INPUT);    // A
+  pinMode(3, INPUT);    // B
+  pinMode(8, OUTPUT);   // Resultado OR
+}
+
+void loop() {
+  A = digitalRead(2);
+  B = digitalRead(3);
+
+  // Operación OR lógica
+  int Resultado = A | B; 
+
+  // Encender la salida si el resultado es 1
+  digitalWrite(8, Resultado == 1 ? HIGH : LOW); 
+
+  delay(100); // Pequeño retraso para estabilidad
+}
