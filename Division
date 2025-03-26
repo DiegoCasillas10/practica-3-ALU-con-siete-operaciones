@@ -1,0 +1,25 @@
+int A = 0;
+int B = 0;
+
+void setup() {
+  pinMode(2, INPUT);    // A
+  pinMode(3, INPUT);    // B
+  pinMode(8, OUTPUT);  // Resultado
+  pinMode(9, OUTPUT);  // Error (División por cero)
+}
+
+void loop() {
+  A = digitalRead(2);
+  B = digitalRead(3);
+
+  if (B == 0) {
+    digitalWrite(8, LOW); // Resultado apagado
+    digitalWrite(9, HIGH); // Indicar error
+  } else {
+    int Resultado = A / B; // División lógica
+    digitalWrite(8, Resultado == 1 ? HIGH : LOW); 
+    digitalWrite(9, LOW); // Apagar error
+  }
+
+  delay(100); // Pequeño retraso para estabilidad
+}
