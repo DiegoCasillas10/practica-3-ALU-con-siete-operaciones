@@ -1,0 +1,20 @@
+int A = 0;
+int B = 0;
+
+void setup() {
+  pinMode(2, INPUT);    // A
+  pinMode(3, INPUT);    // B
+  pinMode(8, OUTPUT);  // Diferencia (D)
+  pinMode(9, OUTPUT);  // Préstamo (Borrow)
+}
+
+void loop() {
+  A = digitalRead(2);
+  B = digitalRead(3);
+
+  // Diferencia = A XOR B
+  digitalWrite(8, A ^ B);
+
+  // Préstamo = NOT(A) AND B
+  digitalWrite(9, (!A) && B);
+}
