@@ -1,0 +1,21 @@
+int A = 0;
+int B = 0;
+
+void setup() {
+  pinMode(2, INPUT);    // A
+  pinMode(3, INPUT);    // B
+  pinMode(8, OUTPUT);   // Resultado
+}
+
+void loop() {
+  A = digitalRead(2);
+  B = digitalRead(3);
+
+  // Multiplicación lógica (AND)
+  int Resultado = A * B; 
+
+  // Si el resultado es 1, encender la salida; si es 0, apagarla
+  digitalWrite(8, Resultado == 1 ? HIGH : LOW); 
+
+  delay(100); // Pequeño retraso para estabilidad
+}
